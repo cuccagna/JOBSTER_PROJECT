@@ -167,10 +167,10 @@ const jobStats = async (req, res) => {
     { $sort: { "_id.year": -1, "_id.month": -1 } },
     { $limit: 6 },
   ]);
-  console.log(
+  /* console.log(
     "🚀 ~ file: jobs.js:170 ~ jobStats ~ monthlyApplications:",
     monthlyApplications
-  );
+  ); */
 
   const formatter = new Intl.DateTimeFormat("en-us", {
     month: "short", //mese con 3 lettere
@@ -193,8 +193,8 @@ const jobStats = async (req, res) => {
     })
     .reverse();
 
-  console.log(monthlyApplications);
-  console.log(typeof monthlyApplications[0].date);
+  //console.log(monthlyApplications);
+  //console.log(typeof monthlyApplications[0].date);
   res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };
 
